@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ecotax\\GreenLife\\GreenLife\\GreenLife\\GreenLife.csproj": {}
+    "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\GreenLife.csproj": {}
   },
   "projects": {
-    "D:\\Ecotax\\GreenLife\\GreenLife\\GreenLife\\GreenLife.csproj": {
+    "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\GreenLife.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ecotax\\GreenLife\\GreenLife\\GreenLife\\GreenLife.csproj",
+        "projectUniqueName": "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\GreenLife.csproj",
         "projectName": "GreenLife",
-        "projectPath": "D:\\Ecotax\\GreenLife\\GreenLife\\GreenLife\\GreenLife.csproj",
-        "packagesPath": "C:\\Users\\ABIDULLAH\\.nuget\\packages\\",
-        "outputPath": "D:\\Ecotax\\GreenLife\\GreenLife\\GreenLife\\obj\\",
+        "projectPath": "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\GreenLife.csproj",
+        "packagesPath": "C:\\Users\\farhat.ullah\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ABIDULLAH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\farhat.ullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://nuget.org/api/v2": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.15.0, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.10, )"
@@ -72,6 +76,10 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -99,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
