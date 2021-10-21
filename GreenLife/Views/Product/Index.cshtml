@@ -1,0 +1,276 @@
+﻿@model IEnumerable<GreenLife.ViewModels.ProductionProductViewModel>
+@{
+    ViewData["Title"] = "Product";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link s: //fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>All Products -GreenLife</title>
+</head>
+<body>
+
+
+
+    <!------------featured products----------->
+
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>All Products</h2>
+            <select>
+                <option>Default Shorting</option>
+                <option>Short by price</option>
+                <option>Short by popularity</option>
+                <option>Short by rating</option>
+                <option>Short by sale</option>
+            </select>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                @if (item.ProductId == 2015)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        @*<img src="@photopath" asp-append-version="true">*@
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                 }
+                @if (item.ProductId == 2014)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+
+            
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2013)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                         <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2012)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+
+                    <div class="col-4">
+                         <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+            }
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                @if (item.ProductId == 2011)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2010)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2009)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2008)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+
+                    <div class="col-4">
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+            }
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                @if (item.ProductId == 2007)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2006)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2005)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2004)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+
+                    <div class="col-4">
+                        <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+            }
+        </div>
+       
+        
+        <div class="page-btn">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>&#8594;</span>
+        </div>
+    </div>
+
+    <!------------------js for toggle menu-------->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+﻿@model GreenLife.ViewModels.SalesCustomerViewModel;
+@inject IHttpContextAccessor httpContextAccessor;
+@using GreenLife.ViewModels.Helpers;
+@using Microsoft.AspNetCore.Http;
+@using GreenLife.ViewModels;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>EcoTax_Cart</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="author" content="Themefisher">
+    <meta name="generator" content="Themefisher Constra HTML Template v1.0">
+
+
+
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="~/CheckOut/plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="~/CheckOut/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="~/CheckOut/plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="~/CheckOut/plugins/slick/slick.css">
+    <link rel="stylesheet" href="~/CheckOut/plugins/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/checkout/style.css">
+
+</head>
+
+<body id="body">
+    @{
+        List<Item> cart = (List<Item>)httpContextAccessor.HttpContext.Session.GetObjectFromJson<List<Item>>("cart");
+    }
+    @if (cart == null)
+    {
+        <div class="alert alert-danger">
+            <strong>No Product added to cart!</strong>
+        </div>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-primary"> Go To Product</a>
+    }
+    else
+    {
+        <form name="myForm" enctype="multipart/form-data" asp-controller="Conformation" asp-action="Index" method="post" class="m-3">
+
+            <div class="page-wrapper">
+                <div class="checkout shopping">
+                    <div class="container">
+                        @*<form enctype="multipart/form-data" asp-controller="Customer" asp-action="checkout"  class="m-3">*@
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="block billing-details">
+                                    <h4 class="widget-title">Billing Details</h4>
+                                    @*<form class="checkout-form">*@
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                    @*<div class="checkout-country-code clearfix">*@
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group">
+                                        <label asp-for="FirstName" class="col-sm-2 col-form-label">FirstName</label>
+                                        <input asp-for="FirstName" class="form-control" placeholder="FirstName" />
+
+                                        @*<input type="text" class="form-control" asp-for="FirstName" id="user_post_code" name="zipcode" value="">*@
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="LastName" class="col-sm-2 col-form-label">LastName</label>
+                                        <input asp-for="LastName" class="form-control" placeholder="LastName" />
+
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Street" class="col-sm-2 col-form-label">Street</label>
+                                        <input asp-for="Street" class="form-control" placeholder="Street" />
+                                        <span asp-validation-for="Street" class="text-danger"></span>
+                                    </div>
+                                    @*</div>*@
+                                    <div class="form-group">
+                                        <label asp-for="State" class="col-sm-2 col-form-label">State</label>
+                                        <input asp-for="State" class="form-control" placeholder="State" />
+                                        <span asp-validation-for="State" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="user_city">Select city</label>
+                                        @Html.DropDownList("Cityid", new SelectList(Model.citieslist, "Id", "CityName"))
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Email" class="col-sm-2 col-form-label">Email</label>
+                                        <input asp-for="Email" class="form-control" placeholder="Email" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Phone" class="col-sm-2 col-form-label">Phone</label>
+                                        <input asp-for="Phone" class="form-control" placeholder="Phone" />
+                                        <span asp-validation-for="Phone" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label asp-for="paymentmode" class="col-sm-2 col-form-label"></label>
+                                        <div class=" col-sm-10">
+                                            <select asp-for="paymentmode" class="custom-select mr-sm-2" asp-items="Html.GetEnumSelectList<PaymentMethod>()">
+                                                <option value=""></option>
+                                            </select>
+                                            <span asp-validation-for="paymentmode" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <p style="background-color:black;color:whitesmoke">
+                                        JazzCash:030xxxxxxxx<br>
+                                        EasyPaisa:030xxxxxxxx<br>
+                                        IBank:pk0301xxxxxxxxxxx
+                                    </p>
+                                    <div class="form-group">
+                                        <label asp-for="TransactionTID" class="col-sm-2 col-form-label">TransactionTID</label>
+                                        <input asp-for="TransactionTID" class="form-control" placeholder="TransactionTID" />
+                                        <span asp-validation-for="TransactionTID" class="text-danger"></span>
+                                    </div>
+
+                                    @*</form>*@
+                                </div>
+                                <div class="block">
+                                    @*<h4 class="widget-title">Payment Method</h4>
+                                        <p>Credit Cart Details (Secure payment)</p>*@
+                                    <div class="checkout-product-details">
+                                        <div class="payment">
+                                            <div class="card-details">
+                                                <form class="checkout-form">
+                                                    @*<div class="form-group">
+                                                            <label for="card-number">Card Number <span class="required">*</span></label>
+                                                            <input id="card-number" class="form-control" type="tel" placeholder="•••• •••• •••• ••••">
+                                                        </div>
+                                                        <div class="form-group half-width padding-right">
+                                                            <label for="card-expiry">Expiry (MM/YY) <span class="required">*</span></label>
+                                                            <input id="card-expiry" class="form-control" type="tel" placeholder="MM / YY">
+                                                        </div>
+                                                        <div class="form-group half-width padding-left">
+                                                            <label for="card-cvc">Card Code <span class="required">*</span></label>
+                                                            <input id="card-cvc" class="form-control" type="tel" maxlength="4" placeholder="CVC">
+                                                        </div>*@
+                                                    <button type="submit" class="btn btn-main mt-20">Place Order</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-checkout-details">
+                                    <div class="block">
+                                        <h4 class="widget-title">Order Summary</h4>
+                                        @{
+                                            double total = 0;
+                                            foreach (Item item in cart)
+                                            {
+                                                <div class="media product-card">
+                                                    <a class="pull-left" href="product-single.html">
+                                                        @{ var photopath = "/images/Product/" + (item.product.Photo ?? "Mind.jpg");
+
+                                                            <img class="media-object" src="@photopath" alt="Image" style="width:50px;height:50px" />
+                                                        }
+
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading"><a href="product-single.html">@item.product.ProductName</a></h4>
+                                                        <p class="price">@item.Quantity<span>*</span> @item.product.ListPrice</p>
+                                                        @total=@total+(@item.Quantity*@item.product.ListPrice);
+                                                        @*<a asp-action="RemoveFromCart" asp-controller="Details" class="btn btn-primary"><span class="remove">Remove</span></a>*@
+                                                    </div>
+                                                </div>
+                                            }
+
+
+                                            <ul class="summary-prices">
+                                                @*<li>
+                                                        <span>Subtotal:</span>
+                                                        <span class="price">RS:@ .productprice</span>
+                                                    </li>*@
+                                                <li>
+                                                    <span>Shipping:</span>
+                                                    <span>Free</span>
+                                                </li>
+                                            </ul>
+                                            <div class="summary-total">
+                                                <span>Total</span>
+                                                <span>RS:@total</span>
+                                            </div>
+                                        }
+                                        @*<div class="verified-icon">
+                                                <img src="~/images/Contactus/verified.png" style="width:400px;height:350px">
+                                            </div>*@
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*</form>*@
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+
+
+
+    <!-- Modal -->
+    <!--
+    Essential Scripts
+    =====================================-->
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Touchpin -->
+    <script src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <!-- Instagram Feed Js -->
+    <script src="plugins/instafeed/instafeed.min.js"></script>
+    <!-- Video Lightbox Plugin -->
+    <script src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <!-- Count Down Js -->
+    <script src="plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+    <!-- slick Carousel -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <script src="plugins/slick/slick-animation.min.js"></script>
+
+    <!-- Google Mapl -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script type="text/javascript" src="plugins/google-map/gmap.js"></script>
+
+    <!-- Main Js File -->
+    <script src="js/script.js"></script>
+
+
+
+</body>
+</html>
+

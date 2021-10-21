@@ -1,0 +1,102 @@
+﻿@model IEnumerable<GreenLife.ViewModels.ProductionProductViewModel>
+
+@{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    ViewData["Title"] = "Product";
+    //var newphotopath = "~/Images/" + (Model.ExistingPhtopath ?? "Mind.jpg");
+}
+
+<h2 style="        color: whitesmoke;
+        background: gray;
+        width: 125px;
+        padding-top: 2px;
+        margin-left: 2px;
+">Product</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary" style="margin-top:2px; margin-left:2px; ">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+
+            <th>
+                BrandName
+            </th>
+            <th>
+                CategoryName
+            </th>
+            <th>
+                ModelYear
+            </th>
+            <th>
+                ListPrice
+            </th>
+            <th>
+                Photo
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CateogryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModelYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ListPrice)
+                </td>
+                <td>
+                    <img class="card-img-top ImageThumbnail" src="@photopath" asp-append-version="true" style="width:60px;height:60px;" />
+                    @*@Html.DisplayFor(modelItem => item.Photo)*@
+                </td>
+                <td>
+                    <div>
+                        <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId"
+                           class="btn btn-primary m-1" style="width:68px !important; height:37px !important">Edit</a>
+                        <form asp-action="Delete" asp-controller="Product" asp-route-id="@item.ProductId" method="post" style="display: inline !important">
+                            @*<a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId"
+                        class="btn btn-primary m-1">Delete</a>*@
+                            <span id="confirmDeleteSpan_@item.ProductId" style="display:none">
+                                <span>Are You Sure you want to delete?</span>
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                                <a href="#" class="btn btn-primary"
+                                   onclick="confirmDelete('@item.ProductId', false)">No</a>
+                            </span>
+                            <span id="DeleteSpan_@item.ProductId">
+                                <a href="#" class="btn btn-danger m-1"
+                                   onclick="confirmDelete('@item.ProductId', true)" >Delete</a>
+                            </span>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{ 
+    <script src="~/js/site.js"></script>
+}

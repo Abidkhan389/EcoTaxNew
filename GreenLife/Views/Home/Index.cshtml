@@ -1,0 +1,444 @@
+﻿@model IEnumerable<GreenLife.ViewModels.ProductionProductViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+               
+                
+            </div>
+            <div class="row">
+                <div class="col-2">
+                   <h1>Green Life<br>for Good Quality </h1>
+                   <p>
+                   Success isn't always about greatings. it's about consistency.
+                   Consistent<br> hard work gains success. Greatness will come.
+                   </p>
+                   <a href="products.html" class="btn">Explore Now &#8594;</a>
+                </div>
+                <div class="col-2">
+                        <img src="images/HomeNavbar/background.jpg">
+                </div>
+             </div>
+           
+        </div>
+    </div>
+    <!------------featured categories----------->
+    <div class="categories">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="images/HomeNavbar/fashionbags.jpg">
+                </div>
+                <div class="col-3">
+                    <img src="images/HomeNavbar/shoppingbag (3).jpg">
+                </div>
+                <div class="col-3">
+                    <img src="images/HomeNavbar/food.jpg">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!------------featured products----------->
+
+    <div class="small-container">
+        <h2 class="title">Featured Products</h2>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                @if (item.ProductId == 2012)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2008)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index" ><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2014)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index" ><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2015)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+
+                    <div class="col-4">
+                       
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                 }
+             }
+        </div>
+        <h2 class="title">Latest Products</h2>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                @if (item.ProductId == 2015)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2014)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2013)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2012)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+            }
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                @if (item.ProductId == 2011)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2010)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2009)
+                {
+                    var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+                @if (item.ProductId == 2008)
+                {
+                    var photopath = "/images/Product/" + (item.Productphoto ?? "Mind.jpg");
+
+                    <div class="col-4">
+                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+                        <h4>@item.ProductName</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>RS:@item.ListPrice</p>
+                    </div>
+                }
+            }
+            
+            @*<div class="col-4">
+                <img src="images/HomeNavbar/freshfood.jpg">
+                <h4> Fresh Food bags</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>RS:170/kg</p>
+            </div>*@
+        </div>
+
+    </div>
+    <!------------Offer ---------->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="~/images/HomeNavbar/exclusive.jpg" class="offer-img" style="height: 300px;">
+                </div>
+                <br>
+                <div class="col-2">
+                    <p>Exclusively Avaiable on GreenLife</p>
+                    <h1>Fashion Bag</h1>
+                    <small>
+                        The Fashion Bag is larger than Normal other bags.
+                        Its Avaiable in many colors with good stuff.
+                        So everything
+                        is good as can be.
+                    </small>
+                    <br>
+                    @*<a asp-controller="Detials" asp-action="Index" asp-route-id="" class="btn">Buy Now &#8594;</a>*@
+                    <a asp-controller="Detials" asp-action="Index" class="btn">Buy Now &#8594;</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------Testimonial-------->
+    <div class="testimonial">
+        <div class="small-container">
+            <h2 class="title">Testimonial</h2>
+            <div class="row">
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>
+                        I am Sumaira Sabir,Form DG Khan. I have done my graduation in Chemistry From
+                        bahauddin zakariya university multan. I have one year lab work
+                        experince on NanoTechnology Project. Being an analytical Chemist
+                        i will try my best to make the enviroment pollution free form plastic
+                        and its by Product,so our product will be sustainable and ecofriendly.
+                        I am determined to play my part in creating an enviromentall and harmonious
+                        society to earn the trust and respect of the Golbal Community.
+                    </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <img src="images/HomeNavbar/user-1.png">
+                    <h3>Sumaira Sabir(Founder)</h3>
+                </div>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>
+                        I am Ayesha Kanwal from Jahanian. I have done my graduation in Chemistry From
+                        bahauddin zakariya university multan. I have one year lab work
+                        experince on NanoTechnology Project. Being a social enterprenuer,we
+                        have decided to make our prodcut which atleast protect our enviroment
+                        from pollution.
+                    </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <img src="images/HomeNavbar/user-1.png">
+                    <h3>Ayesha Kanwal(Co-Founder)</h3>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>
+                        I am Hira choudhary from Shujabad. I have done my graduation Chemistry From
+                        bahauddin zakariya university multan. I am Checmical Analyzer in the startup,
+                        any 
+                        
+                    </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <img src="images/HomeNavbar/user-1.png">
+                    <h3>Hira Choudhary(Member)</h3>
+                </div>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>
+                        i am hamna ismail from chowk sarwar shaheed.i am the student of
+                        second smester of msc psychology from bahaudin
+                        zikrya university multan. i have done my internship from nishtar 
+                        hospital multan for two months.Being a part of this project 
+                        i try to make a enviornmental friend product which is free from pollution
+                        and will be save for our population.
+
+                       
+                    </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i  class="fa fa-star-o"></i>
+                    </div>
+                    <img src="images/HomeNavbar/user-1.png">
+                    <h3>Humna Bibi(Member)</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------Brands------------>
+    <!--<div class="brands">
+        <div class="small-container">
+            <h2 class="title">Brands</h2>
+            <div class="row">
+                <div class="col-5">
+                    <img src="images/HomeNavbar/logo-godrej.png">
+                </div>
+                <div class="col-5">
+                    <img src="images/HomeNavbar/logo-oppo.png">
+                </div>
+                <div class="col-5">
+                    <img src="images/HomeNavbar/logo-coca-cola.png">
+                </div>
+                <div class="col-5">
+                    <img src="images/HomeNavbar/logo-paypal.png">
+                </div>
+                <div class="col-5">
+                    <img src="images/HomeNavbar/logo-philips.png">
+                </div>
+            </div>
+        </div>
+    </div>-->
+    
+
+    <!------------------js for toggle menu-------->
+    <script>
+       var MenuItems =document.getElementById("MenuItems");
+       MenuItems.style.maxHeight="0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight=="0px")
+            {
+                MenuItems.style.maxHeight="200px";
+            }
+            else{
+                MenuItems.style.maxHeight="0px";
+            }
+        }
+    </script>
+</body>
+</html>

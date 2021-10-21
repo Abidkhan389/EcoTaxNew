@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GreenLife.Models.ProductionBrand>
+
+    <h2 style="color: whitesmoke;background: gray;width: 100px;padding-top: 2px;margin-left: 2px;">Brand</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary" style="margin-top:2px; margin-left:2px; ">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                <td>
+                    <div>
+                        <a asp-controller="Brand" asp-action="Edit" asp-route-id="@item.BrandId"
+                           class="btn btn-primary m-1" style="width:68px !important; height:37px !important">Edit</a>
+                        <form asp-action="Delete" asp-controller="Brand" asp-route-id="@item.BrandId" method="post" style="display: inline !important">
+                            @*<a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId"
+                                class="btn btn-primary m-1">Delete</a>*@
+                            <span id="confirmDeleteSpan_@item.BrandId" style="display:none">
+                                <span>Are You Sure you want to delete?</span>
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                                <a href="#" class="btn btn-primary"
+                                   onclick="confirmDelete('@item.BrandId', false)">No</a>
+                            </span>
+                            <span id="DeleteSpan_@item.BrandId">
+                                <a href="#" class="btn btn-danger m-1"
+                                   onclick="confirmDelete('@item.BrandId', true)">Delete</a>
+                            </span>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script src="~/js/site.js"></script>
+}

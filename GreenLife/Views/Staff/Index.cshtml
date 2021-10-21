@@ -1,0 +1,101 @@
+﻿@model IEnumerable<GreenLife.ViewModels.SalesStaffViewModel>
+<h2 style="color: whitesmoke;
+        background: gray;
+        width: 100px;
+        padding-top: 2px;
+        margin-left: 2px;">
+    Staff
+</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StaffId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                StoreName
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManagerId)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.StaffId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(modelItem => item.choseactivetype)
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.storesName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManagerId)
+                </td>
+               
+                <td>
+                    <div>
+                        <a asp-controller="Staff" asp-action="Edit" asp-route-id="@item.StaffId"
+                           class="btn btn-primary m-1" style="width:68px !important; height:37px !important">Edit</a>
+                        <form asp-action="Delete" asp-controller="Store" asp-route-id="@item.StaffId" method="post" style="display: inline !important">
+
+                            <span id="confirmDeleteSpan_@item.StaffId" style="display:none">
+                                <span>Want to delete?</span>
+                                <button type="submit" class="btn btn-danger">Yes</button>
+                                <a href="#" class="btn btn-primary"
+                                   onclick="confirmDelete('@item.StaffId', false)">No</a>
+                            </span>
+                            <span id="DeleteSpan_@item.StaffId">
+                                <a href="#" class="btn btn-danger m-1"
+                                   onclick="confirmDelete('@item.StaffId', true)">Delete</a>
+                            </span>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script src="~/js/site.js"></script>
+}

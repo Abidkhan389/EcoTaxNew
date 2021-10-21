@@ -1,0 +1,36 @@
+@inject SignInManager<ApplicationUser> signInManager;
+<ul class="sidebar-menu" data-widget="tree">
+    <li class="header">HEADER</li>
+    <!-- Optionally, you can add icons to the links -->
+    @*<li <a asp-action="Index" asp-controller="Store"><i class="fa fa-link"></i> <span>Store</span></a></li>*@
+    <li><a asp-action="Index" asp-controller="Category"><i class="fa fa-link"></i> <span>Category</span></a></li>
+    <li><a asp-action="Index" asp-controller="Store"><i class="fa fa-link"></i> <span>Store</span></a></li>
+    <li><a asp-action="Index" asp-controller="City"><i class="fa fa-link"></i> <span>City</span></a></li>
+    <li><a asp-action="AdminIndex" asp-controller="Product"><i class="fa fa-link"></i> <span>Product</span></a></li>
+    <li><a asp-action="Index" asp-controller="Brand"><i class="fa fa-link"></i> <span>Brand</span></a></li>
+    <li><a asp-action="Index" asp-controller="Staff"><i class="fa fa-link"></i> <span>Staff</span></a></li>
+    <li><a asp-action="Index" asp-controller="Order"><i class="fa fa-link"></i> <span>Orders</span></a></li>
+    <li><a asp-action="Index" asp-controller="OrderItems"><i class="fa fa-link"></i> <span>Orders_items</span></a></li>
+    <li><a asp-action="Index" asp-controller="Customer"><i class="fa fa-link"></i> <span>Customer</span></a></li>
+
+
+    
+    @if (signInManager.IsSignedIn(User) && User.IsInRole("SuperAdmin"))
+    {
+            <li><a asp-action="Register" asp-controller="Account"><i class="fa fa-link"></i> <span>RegisterUser</span></a></li>
+            <li><a asp-action="ListRoles" asp-controller="Administration"><i class="fa fa-link"></i> <span>ListRoles</span></a></li>
+            <li><a asp-action="ListUSers" asp-controller="Administration"><i class="fa fa-link"></i> <span>ListUSers</span></a></li>
+     }
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-link"></i> <span>Multilevel</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="#">Link in level 2</a></li>
+            <li><a href="#">Link in level 2</a></li>
+        </ul>
+    </li>
+</ul>

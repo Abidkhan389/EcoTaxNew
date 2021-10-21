@@ -1,0 +1,161 @@
+﻿@model GreenLife.ViewModels.ProductionProductViewModel
+@{
+    ViewData["Title"] = "Product";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link s: //fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>All Products -Ecotex</title>
+</head>*@
+
+
+
+    <!---------------- single product detials-->
+<form enctype="multipart/form-data" asp-controller="Details2" asp-action="Addtocart" method="post" class="m-3">
+    <div class="small-container single-product">
+        <div class="row">
+
+            <div class="col-2">
+                @{ var photopath = "/images/Product/" + (Model.Productphoto ?? "Mind.jpg");
+
+                    <img src="@photopath" style="height: 600px;">
+                }
+            </div>
+            <div class="col-2">
+
+
+                <h1 style="width: 500px;">@Model.ProductName</h1>
+                @*<h1 style="width: 500px;"> @Html.DisplayNameFor(model => model.ProductName)</h1>*@
+                <h4>RS:@Model.ListPrice</h4>
+                @*<select>
+                        <option>select size</option>
+                        <option>XXL</option>
+                        <option>XL</option>
+                        <option>Large</option>
+                        <option>Medium</option>
+                        <option>Small</option>
+                    </select>*@
+
+                <div class="form-group">
+                    @*<label class="control-label">select Category</label>*@
+                    @Html.DropDownList("CategoryId", new SelectList(Model.categorylist, "CategoryId", "CategoryName"))
+                </div>
+                <input type="number" asp-for="numberofquantity" min=0 oninput="validity.valid||(value='');">
+
+
+                @*<a asp-controller="" asp-action="buy" asp-route-id="@Model.ProductId" class="btn">Add to Cart</a>*@
+                <input hidden asp-for="ProductId" />
+                <button type="submit" class="btn">Add to Cart</button>
+
+                <h3>Product Details <i class="fa fa-indent"></i></h3>
+                <br>
+                <p>
+                    give you a best choice for shopping.
+                    You can easly carry it with your shopping
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!------------Title----------------->
+    @*<div class="small-container">
+            <div class="row row-2">
+                <h2>Related Products</h2>
+                <a asp-controller="Product" asp-action="Index" class="btn">View More &#8594;</a>
+            </div>
+        </div>*@
+</form>
+    <!------------ products----------->
+
+    <div class="small-container">
+        <div class="row">
+            <div class="col-4">
+                <a asp-controller="Details2" asp-action="Index" asp-route-id="2006"><img src="~/images/Product/1ecd3a91-0c2d-4b04-9e86-4bbaf8b1cb26_product3.jpg"></a>
+
+                
+                <h4>vegetable bags</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>RS:@Model.ListPrice</p>
+            </div>
+            <div class="col-4">
+                <a asp-controller="Details2" asp-action="Index" asp-route-id="2009"><img src="~/images/Product/304e0265-3011-48d5-a5bd-c865a70f8c90_product6.jpg"></a>
+
+                
+                <h4>Ice bags</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                </div>
+                <p>RS:@Model.ListPrice/kg</p>
+            </div>
+            <div class="col-4">
+                
+                <a asp-controller="Details2" asp-action="Index" asp-route-id="2007"><img src="~/images/Product/1e4bf9d1-359b-4df4-9419-098696670c4f_product4.jpg"></a>
+
+                <h4>Common Shopping bags</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>RS:@Model.ListPrice/kg</p>
+            </div>
+            <div class="col-4">
+                <a asp-controller="Details2" asp-action="Index" asp-route-id="2010"><img src="~/images/Product/099a4aff-f13f-40c0-9c84-2654306221bc_product7.jpg"></a>
+
+                
+                <h4> Fresh Food bags</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>RS:@Model.ListPrice/kg</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!------------------js for toggle menu-------->
+    @*<script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            }
+            else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>*@
+
+@*</html>*@

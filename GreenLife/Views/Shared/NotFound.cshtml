@@ -1,0 +1,10 @@
+﻿@model int
+@{
+
+    ViewBag.Title = "Not Found";
+}
+<h1>@ViewBag.ErrorMessage</h1>
+<h5>
+    Role with id=@Model Cannot be found
+</h5>
+<a asp-action="ListUSers" asp-controller="Administration">Click here to navigate to the ListRoles</a>

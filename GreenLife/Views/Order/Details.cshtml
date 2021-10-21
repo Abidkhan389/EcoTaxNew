@@ -1,0 +1,43 @@
+﻿@model SalesOrderViewModel
+    <h2 style="color: whitesmoke;
+        background: gray;
+        width: 180px;
+        padding-top: 2px;
+        margin-left: 2px;
+        margin-top:  2px;    ">
+        Order Detials
+    </h2>
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card text-center">
+            <div class="card-header" style="background-color:lightgray">
+                <h1 style="background-color:darkgrey ;color:whitesmoke">Order ID:@Model.OrderId</h1>
+                <h1 style="background-color:darkgrey ;color:whitesmoke">Customer ID:@Model.CustomerId</h1>
+                <h1 style="background-color:darkgrey ;color:whitesmoke">Customer FirstName:@Model.customerfirstname</h1>
+                <h1 style="background-color:darkgrey ;color:whitesmoke">Customer LastName:@Model.customerlastname</h1>
+
+            </div>
+            <div class="card-body text-center" style="background-color:lightgray">
+
+                <h4 style="background-color:darkgrey;color:whitesmoke">Order Status: <div class="checkbox">@Model.choseorderstatus</div></h4>
+
+                <h4 style="background-color:darkgrey;color:whitesmoke">Order Date: @Model.OrderDate</h4>
+                <h4 style="background-color:darkgrey;color:whitesmoke">Order RequiredDate: @Model.RequiredDate</h4>
+                <h4 style="background-color:darkgrey ;color:whitesmoke">Order ShippedDate: @Model.ShippedDate</h4>
+                <h4 style="background-color:darkgrey ;color:whitesmoke" >Staff ID: @Model.StaffId</h4>
+                <h4 style="background-color:darkgrey ;color:whitesmoke">Staff firstName: @Model.staffirstname</h4>
+                <h4 style="background-color:darkgrey ;color:whitesmoke ">Staff LastName: @Model.staflastname</h4>
+                <h4 style="background-color:darkgrey ;color:whitesmoke ">Store ID: @Model.StoreId</h4>
+                <h4 style="background-color:darkgrey ;color:whitesmoke ">Store Name: @Model.storename</h4>
+
+            </div>
+            <div class="card-footer text-center" style="background-color:lightgray">
+                <a asp-controller="Order" asp-action="Index" class="btn btn-primary m-1">Back</a>
+                <a asp-action="Edit" asp-controller="Order" asp-route-id="@Model.OrderId"
+                   class="btn btn-primary m-1">Edit</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+

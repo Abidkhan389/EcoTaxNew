@@ -1,0 +1,373 @@
+﻿@inject SignInManager<ApplicationUser> signInManager;
+@using GreenLife.ViewModels.Helpers;
+@using Microsoft.AspNetCore.Http;
+@using System.IO;
+@using Newtonsoft.Json;
+@using GreenLife.Data.EFCore;
+@using GreenLife.ViewModels;
+@using Microsoft.AspNetCore.Mvc;
+@using System.Collections.Generic;
+@using System.Threading.Tasks;
+@using System.Text.Json;
+@using System.Linq
+@*@model GreenLife.ViewModels.ProductionProductViewModel*@
+@*@inject Microsoft.AspNetCore.Http.ISession httpContext*@
+@inject IHttpContextAccessor httpContextAccessor
+@*@inject ISession Session*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link s: //fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+
+
+        <div class="navbar header">
+            <div class="logo">
+                <img src="~/images/HomeNavbar/logo3.jpg" width="125px">
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Product" asp-action="Index">Product</a></li>
+                    <li><a asp-controller="AboutUs" asp-action="Index">AboutUS</a></li>
+                    <li><a asp-controller="ContactUS" asp-action="Index">ContactUS</a></li>
+                    @*<li><a asp-controller="Account" asp-action="Login">Account</a></li>*@
+                    <ul class="nav navbar-nav navbar-right>
+                        <li class="dropdown">
+
+                            <a data-toggle="dropdown" class="dropdown-toggle"><img src="~/images/HomeNavbar/cart.png" width="30px" height="30px"></a>
+                            @*<a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>*@
+                            <ul class="dropdown-menu">
+                                @{
+                                    List<Item> cart = (List<Item>)httpContextAccessor.HttpContext.Session.GetObjectFromJson<List<Item>>("cart");
+                                    //List<Item> cart = (List<Item>)httpContextAccessor .GetObjectFromJson<List<Item>>("cart");
+                                    if (cart != null)
+                                    {
+                                        @*<li>
+                                                <a asp-controller="Details2" asp-action="RemoveFromCart" asp-route-id="@item.product.ProductId">@item.product.ProductName (@item.Quantity)<i class="fa fa-times"></i></a>
+                                            </li>*@
+
+                                        <div class="page-wrapper">
+                                            <div class="cart shopping">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="block">
+                                                                <div class="product-list">
+                                                                    <form method="post">
+                                                                        <table class="table" id="cart-table">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    @*<th class="">Id</th>*@
+                                                                                    <th class="">Name</th>
+                                                                                    <th class="">Price</th>
+                                                                                    <th class="">Quantity</th>
+                                                                                    <th class="">Category</th>
+                                                                                    <th class="">Actions</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                @foreach (var item in cart)
+                                                                                {
+                                                                                    <tr class="">
+                                                                                        @*<td>@item.product.ProductId</td>*@
+                                                                                        <td class="">
+                                                                                            <div class="product-info">
+                                                                                                @{ var photopath = "/images/Product/" + (item.product.Photo ?? "Mind.jpg");
+
+                                                                                                    <img class="media-object" src="@photopath" alt="Image" style="width:50px;height:50px" />
+                                                                                                }
+                                                                                                @*<img width="80" src="images/shop/cart/cart-1.jpg" alt="" />*@
+                                                                                                <a>@item.product.ProductName</a>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td class="">@item.product.ListPrice</td>
+                                                                                        <td class="">@item.Quantity</td>
+                                                                                        <td class="">@item.product.CategoryName</td>
+
+                                                                                        <td name="@item.product.ProductId" id="@item.product.ProductId">
+                                                                                            <a onclick="removeCart('@item.product.ProductId')" class="btn btn-danger" style="margin:0px !important">Remove</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                }
+                                                                            </tbody>
+                                                                        </table>
+
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a asp-controller="Customer" asp-action="checkout" class="btn btn-main pull-right">Checkout</a>
+                                    }
+                                    <br />
+                                    @*<li><a asp-controller="Customer" asp-action="checkout" class="btn btn-primary" style="position:auto;text-align:center;  width:130px;height:50px ;margin:auto;padding-right:40px; -ms-transform:translateX(80%);transform:translateX(80%);">Checkout</a></li>*@
+                                }
+                            </ul>
+                        </li>
+                    </ul>
+
+                </ul>
+
+            </nav>
+
+            <img src="~/images/HomeNavbar/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+
+
+    </header>
+    <div class="containercpy">
+
+        <div>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+        @if (IsSectionDefined("Scripts"))
+        {
+            @RenderSection("Scripts", required: true)
+        }
+    </div>
+
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="~/images/HomeNavbar/play-store.png">
+                        <img src="~/images/HomeNavbar/app-store.png">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="~/images/HomeNavbar/logo.jpg">
+                    <p>
+                        Our Purpose Is To Sustainable Make the Pleasure and
+                        Benifits of Bags Accesible to the Many.
+                    </p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><i class="fa fa-instagram mr-3"><span style="padding-right:2px"></span>Instagram</i></li>
+                        <li><i class="fa fa-facebook-official mr-3"><span style="padding-right:2px"></span>Facebook</i></li>
+                        <li><i class="fa fa-youtube-play mr-3"> <span style="padding-right:2px"></span>Youtube</i></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <p><i class="fa fa-home mr-3"></i> ORIC, BZU MULTAN</p>
+                        <p><i class="fa fa-envelope mr-3"></i> info@example.com</p>
+                        <p><i class="fa fa-phone-square mr-4"></i> +92 234 567 88</p>
+
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">EcoTax 2021 - biodegradable-Clothes</p>
+        </div>
+    </div>
+
+
+
+    <!-- #region Test -->
+    <!--<footer class="border-top footer text-muted">-->
+    <!-- Footer -->
+    <!--<footer class="page-footer font-small mdb-color lighten-3 pt-4">-->
+    <!-- Footer Links -->
+    <!--<div class="container text-center text-md-left">-->
+    <!-- Grid row -->
+    <!--<div class="row">-->
+    <!-- Grid column -->
+    <!--<div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">-->
+    <!-- Content -->
+    <!--<h5 class="font-weight-bold text-uppercase mb-4">Our Vision</h5>
+        <p>Our aim is to produce Cheap and santainable products for our Consumers</p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate
+            esse
+            quasi, veritatis totam voluptas nostrum.
+        </p>
+
+    </div>-->
+    <!-- Grid column -->
+    <!--<hr class="clearfix w-100 d-md-none">-->
+    <!-- Grid column -->
+    <!--<div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">-->
+    <!-- Links -->
+    <!--<h5 class="font-weight-bold text-uppercase mb-4">About</h5>
+
+        <ul class="list-unstyled">
+            <li>
+                <p>
+                    <a href="#!">PROJECTS</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="#!">ABOUT US</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="#!">BLOG</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="#!">AWARDS</a>
+                </p>
+            </li>
+        </ul>
+
+    </div>-->
+    <!-- Grid column -->
+    <!--<hr class="clearfix w-100 d-md-none">-->
+    <!-- Grid column -->
+    <!--<div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">-->
+    <!-- Contact details -->
+    <!--<h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+        <ul class="list-unstyled">
+            <li>
+                <p>
+                    <i class="fas fa-home mr-3"></i>ORIC BZU Multa,Pakistan
+                </p>
+            </li>
+            <li>
+                <p>
+                    <i class="fas fa-envelope mr-3"></i>AbidUllahkhan.se@gmail.com.com
+                </p>
+            </li>
+            <li>
+                <p>
+                    <i class="fas fa-phone mr-3"></i> +923017754126
+                </p>
+            </li>
+            <li>
+                <p>
+                    <i class="fas fa-print mr-3"></i>66541267352
+                </p>
+            </li>
+        </ul>
+
+    </div>-->
+    <!-- Grid column -->
+    <!--<hr class="clearfix w-100 d-md-none">-->
+    <!-- Grid column -->
+    <!--<div class="col-md-2 col-lg-2 text-center mx-auto my-4">-->
+    <!-- Social buttons -->
+    <!--<h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>-->
+    <!-- Facebook -->
+    <!--<a type="button" class="btn-floating btn-fb">
+        <i class="fab fa-facebook-f"></i>
+    </a>-->
+    <!-- Twitter -->
+    <!--<a type="button" class="btn-floating btn-tw">
+        <i class="fab fa-twitter"></i>
+    </a>-->
+    <!-- Google +-->
+    <!--<a type="button" class="btn-floating btn-gplus">
+        <i class="fab fa-envelope"></i>
+    </a>-->
+    <!-- Dribbble -->
+    <!--<a type="button" class="btn-floating btn-dribbble">
+            <i class="fab fa-dribbble"></i>
+        </a>
+        <a>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+    </div>-->
+    <!-- Grid column -->
+    <!--</div>-->
+    <!-- Grid row -->
+    <!--</div>-->
+    <!-- Footer Links -->
+    <!-- Copyright -->
+    <!--<div class="container">
+        &copy; 2021 - GreenLife - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>-->
+    <!-- Copyright -->
+    <!--</footer>-->
+    <!-- Footer -->
+    <!--</footer>-->
+    <!-- #endregion -->
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @*@await RenderSectionAsync("Scripts", required: false)*@
+
+
+
+
+    <!------------------js for toggle menu-------->
+    <script>
+        //var MenuItems = document.getElementById("MenuItems");
+        //MenuItems.style.maxHeight = "0px";
+        //function menutoggle() {
+        //    if (MenuItems.style.maxHeight == "0px") {
+        //        MenuItems.style.maxHeight = "200px";
+        //    }
+        //    else {
+        //        MenuItems.style.maxHeight = "0px";
+        //    }
+        //}
+        function removeCart(prodId) {
+            debugger;
+            console.log(prodId);
+            $.ajax({
+                type: "POST",
+                url: "/Details2/RemoveFromCart",
+                data: { "id": prodId },
+                success: function (response) {
+                    //$(this).parent().remove();
+                    var tr = $('#' + prodId).closest('tr');
+                    tr.remove();
+                    if ($('#cart-table > tbody > tr').length == 0) {
+                        $('#cart-table > thead > tr > th').css('display', 'none');
+                    }
+                    alert("Product removed from cart");
+                },
+                failure: function (response) {
+                    debugger;
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
