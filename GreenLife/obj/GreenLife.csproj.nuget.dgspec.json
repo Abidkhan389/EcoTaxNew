@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\GreenLife.csproj": {}
+    "D:\\Ecotax\\EcoTaxNew\\GreenLife\\GreenLife.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\GreenLife.csproj": {
+    "D:\\Ecotax\\EcoTaxNew\\GreenLife\\GreenLife.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\GreenLife.csproj",
+        "projectUniqueName": "D:\\Ecotax\\EcoTaxNew\\GreenLife\\GreenLife.csproj",
         "projectName": "GreenLife",
-        "projectPath": "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\GreenLife.csproj",
-        "packagesPath": "C:\\Users\\farhat.ullah\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\Abid\\EcoTaxNew\\GreenLife\\obj\\",
+        "projectPath": "D:\\Ecotax\\EcoTaxNew\\GreenLife\\GreenLife.csproj",
+        "packagesPath": "C:\\Users\\ABIDULLAH\\.nuget\\packages\\",
+        "outputPath": "D:\\Ecotax\\EcoTaxNew\\GreenLife\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\farhat.ullah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ABIDULLAH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://nuget.org/api/v2": {}
         },
         "frameworks": {
           "net5.0": {
@@ -46,7 +46,7 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
@@ -54,17 +54,17 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.TypeScript.MSBuild": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -107,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
         }
       }
     }

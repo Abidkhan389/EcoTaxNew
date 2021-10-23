@@ -1,6 +1,7 @@
 ﻿using GreenLife.Data.EFCore;
 using GreenLife.Models;
 using GreenLife.Utilities;
+using GreenLife.Utilities.Services;
 using GreenLife.ViewModels;
 using GreenLife.ViewModels.Helpers;
 using Microsoft.AspNetCore.Authorization;
@@ -17,28 +18,60 @@ namespace GreenLife.Controllers
     public class CustomerController : Controller
     {
         private readonly EFCoreCustomerRepository _repository;
+        private readonly IMailService _mailService;
         private readonly EFCoreCityRepository _eFCoreCityRepository;
 
         private readonly EfCoreProductRepository _efCoreProductRepository;
 
-        public CustomerController(EFCoreCustomerRepository repository, EFCoreCityRepository eFCoreCityRepository, EfCoreProductRepository efCoreProductRepository)
+        public CustomerController(EFCoreCustomerRepository repository, IMailService mailService, EFCoreCityRepository eFCoreCityRepository, EfCoreProductRepository efCoreProductRepository)
         {
             this._repository = repository;
+            this._mailService = mailService;
             this._eFCoreCityRepository = eFCoreCityRepository;
             this._efCoreProductRepository = efCoreProductRepository;
         }
-        [HttpPost("Send")]
-        public async Task<IActionResult> Send([FromForm] MailRequest request)
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<JsonResult> Send(string email)
         {
             try
             {
-                //await mailService.SendEmailAsync(request);
-                return Ok();
+                Random random = new Random();
+                int randomNumber = random.Next(1000, 9999);
+                MailRequest mailRequest = new MailRequest();
+                mailRequest.ToEmail = email;
+                HttpContext.Session.SetString("verificationCode", randomNumber.ToString());
+                mailRequest.Body = "This is your verification Code:" + randomNumber.ToString();
+                await _mailService.SendEmailAsync(mailRequest);
+                //var verificationCode= HttpContext.Session.GetString("verificationCode");
+                return Json(true);
             }
             catch (Exception ex)
             {
 
-                throw ex;
+                return Json(false);
+            }
+
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<JsonResult> VerifyCode(string code)
+        {
+            try
+            {
+               
+                string verifycode=HttpContext.Session.GetString("verificationCode");
+                if (code == verifycode)
+                    return Json(true);
+                else
+                    return Json(false);
+            }
+            catch (Exception ex)
+            {
+
+                return Json(false);
             }
 
         }
@@ -49,8 +82,7 @@ namespace GreenLife.Controllers
             List<Item> cart = (List<Item>)HttpContext.Session.GetObjectFromJson<List<Item>>("cart");
 
             SalesCustomerViewModel model = new SalesCustomerViewModel();
-            Random random = new Random();
-            int randomBetween1000And9999 = random.Next(1000, 9999);
+           
             var citieslistall = await _eFCoreCityRepository.GetAll();
             List<cities> cityList = new List<cities>();
             foreach (var item in citieslistall)
@@ -65,7 +97,6 @@ namespace GreenLife.Controllers
 
             return View(model);
         }
-
 
         // GET: CustomerController
         public async Task<ActionResult> Index()

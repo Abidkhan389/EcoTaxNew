@@ -50,7 +50,7 @@ namespace GreenLife.ViewModels
         public string ZipCode { get; set; }
         public string orderstatus { get; set; }
         [Required]
-        public int emailopt { get; set; }
+        public string emailopt { get; set; }
         [Required]
         public string TransactionTID { get; set; }
         [Required]

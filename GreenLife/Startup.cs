@@ -1,5 +1,6 @@
 using GreenLife.Data.EFCore;
 using GreenLife.Models;
+using GreenLife.Utilities.services;
 using GreenLife.Utilities.Services;
 using GreenLife.ViewModels;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -45,7 +46,7 @@ namespace GreenLife
                 Options.Password.RequiredLength = 6;
                 Options.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<GreenLifeFinalContext>();
-           services.AddScoped<EfCoreProductRepository>();
+            services.AddScoped<EfCoreProductRepository>();
            services.AddScoped<EFCoreBrandRepository>();
            services.AddScoped<EFCoreCategoryRepository>(); 
            services.AddScoped<EFCoreCityRepository>(); 
@@ -57,8 +58,8 @@ namespace GreenLife
            services.AddScoped<EFCoreCustomerRepository>();
            services.AddScoped<EFCoreUserRepository>();
            services.AddScoped<EFCoreMessagesRepository>();
-            //services.AddScoped<IMailService, MailService>();
-
+           services.AddScoped<IMailService, MailService>();
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));//for mail
             services.AddMvc().AddSessionStateTempDataProvider();
             services.AddHttpContextAccessor();
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
