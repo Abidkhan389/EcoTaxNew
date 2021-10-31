@@ -139,6 +139,9 @@ namespace GreenLife.Models
                 entity.Property(e => e.ListPrice)
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("list_price");
+                entity.Property(e => e.actual_product_price)
+                  .HasColumnType("decimal(10, 2)")
+                  .HasColumnName("actual_product_price");
 
                 entity.Property(e => e.ModelYear).HasColumnName("model_year");
 
@@ -324,6 +327,9 @@ namespace GreenLife.Models
                 entity.Property(e => e.ListPrice)
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("list_price");
+                entity.Property(e => e.actual_product_price)
+                   .HasColumnType("decimal(10, 2)")
+                   .HasColumnName("actual_product_price");
 
                 entity.Property(e => e.ProductId).HasColumnName("product_id");
 

@@ -48,6 +48,7 @@ namespace GreenLife.ViewModels
         [Required]
         public string State { get; set; }
         public string ZipCode { get; set; }
+        public DateTime requireddate { get; set; }
         public string orderstatus { get; set; }
         [Required]
         public string emailopt { get; set; }

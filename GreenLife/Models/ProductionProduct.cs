@@ -22,6 +22,7 @@ namespace GreenLife.Models
         public short ModelYear { get; set; }
         public decimal ListPrice { get; set; }
         public String Photo { get; set; }
+        public decimal actual_product_price { get; set; }
 
         public virtual ProductionBrand Brand { get; set; }
         public virtual ProductionCategory Category { get; set; }

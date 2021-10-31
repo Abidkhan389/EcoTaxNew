@@ -13,6 +13,7 @@ namespace GreenLife.Models
         public int Quantity { get; set; }
         public decimal ListPrice { get; set; }
         public decimal Discount { get; set; }
+        public decimal actual_product_price {get;set;}
 
         public virtual SalesOrder Order { get; set; }
         public virtual ProductionProduct Product { get; set; }

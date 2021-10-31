@@ -58,7 +58,7 @@
     else
     {
 <form onsubmit="return onSubmitClick(this);" name="myForm" enctype="multipart/form-data" asp-controller="Conformation" asp-action="Index" method="post" class="m-3">
-
+    <input hidden asp-for="@Model.CustomerId" />
     <div class="page-wrapper">
         <div class="checkout shopping">
             <div class="container">
@@ -134,7 +134,7 @@
                             </p>
                             <div class="form-group">
                                 <label asp-for="TransactionTID" class="col-sm-2 col-form-label">TransactionTID</label>
-                                <input asp-for="TransactionTID" class="form-control" placeholder="TransactionTID" />
+                                <input id="TransactionTIDInput" asp-for="TransactionTID" class="form-control" placeholder="TransactionTID" />
                                 <span asp-validation-for="TransactionTID" class="text-danger"></span>
                             </div>
 
@@ -159,7 +159,7 @@
                                                     <label for="card-cvc">Card Code <span class="required">*</span></label>
                                                     <input id="card-cvc" class="form-control" type="tel" maxlength="4" placeholder="CVC">
                                                 </div>*@
-                                            <button type="submit" class="btn btn-main mt-20">Place Order</button>
+                                            <button id="btnSubmit" type="submit" class="btn btn-main mt-20">Place Order</button>
                                         </form>
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@
                                             <div class="media-body">
                                                 <h4 class="media-heading"><a href="product-single.html">@item.product.ProductName</a></h4>
                                                 <p class="price">@item.Quantity<span>*</span> @item.product.ListPrice</p>
-                                                @total=@total+(@item.Quantity*@item.product.ListPrice);
+                                                @{total = total + Convert.ToDouble(item.Quantity * item.product.ListPrice);}
                                                 @*<a asp-action="RemoveFromCart" asp-controller="Details" class="btn btn-primary"><span class="remove">Remove</span></a>*@
                                             </div>
                                         </div>
@@ -218,7 +218,7 @@
                 @*</form>*@
             </div>
         </div>
-    </div>   
+    </div>
 </form>
     }
 
@@ -251,19 +251,21 @@
 
     <!-- Main Js File -->
     <script src="js/script.js"></script>
-    <script>
+    <script  type="text/javascript">
         function GetVerificationCode() {
             var Email = $("#EmailInput").val();
             if (Email == null || Email == "") {
                 alert('Please enter email');
             }
-            else {                
+            else {
                 $.ajax({
                     type: "POST",
                     url: "/Customer/Send",
                     data: { "email": Email },
                     success: function (response) {
-                        alert("Please enter verification, which we have sent to your email address");
+                        swal("Varification Code!", "Please enter verification code, which we have sent to your email address", "Ok")
+
+                        /*alert("Please enter verification code, which we have sent to your email address");*/
                     },
                     failure: function (response) {
                         debugger;
@@ -275,19 +277,24 @@
                 });
             }
         }
-        function onSubmitClick(item) {
+
+        $('#btnSubmit').click(function (event) {
             var verificationCode = $("#VarificationCodeInput").val();
             debugger;
             $.ajax({
+                async: false,
                 type: "POST",
                 url: "/Customer/VerifyCode",
                 data: { "code": verificationCode },
                 success: function (response) {
+                    debugger;
                     if (response == true) {
                         return true;
                     }
                     else {
-                        return false;
+                        event.preventDefault();
+                        swal("Enter Again!", "Your verification code is wrong", "error")
+                        alert('Your verification code is wrong');
                     }
                 },
                 failure: function (response) {
@@ -298,9 +305,38 @@
                     alert(response.responseText);
                 }
             });
+        });
+        $('#btnSubmit').click(function (event) {
+            var TransactionTIDCode = $("#TransactionTIDInput").val();
+            debugger;
+            $.ajax({
+                async: false,
+                type: "POST",
+                url: "/Customer/VerifyTransactionTID",
+                data: { "TransactionId": TransactionTIDCode },
+                success: function (response) {
+                    debugger;
+                    if (response == true) {
+                        return true;
+                    }
+                    else {
+                        event.preventDefault();
+                        
+                        alert('Your TransactionT ID is alreayd used,Please enter correct TransactionT ID ');
+                    }
+                },
+                failure: function (response) {
+                    debugger;
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
             //get value from session
-            
-        }
+
+        //}
     </script>
 
 

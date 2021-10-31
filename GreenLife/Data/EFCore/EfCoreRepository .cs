@@ -54,5 +54,11 @@ namespace GreenLife.Data.EFCore
             return entity;
         }
 
+        public async Task<bool> AddAll(List<TEntity> entities)
+        {
+            context.Set<TEntity>().AddRange(entities);
+            await context.SaveChangesAsync();
+            return true;
+        }
     }
 }

@@ -70,6 +70,7 @@ namespace GreenLife.Controllers
 
                 productlistloop.ModelYear = item.ModelYear;
                 productlistloop.ListPrice = item.ListPrice;
+                productlistloop.actual_product_price = item.actual_product_price;
                 productlistloop.Productphoto = item.Photo;
 
                 productList.Add(productlistloop);
@@ -142,6 +143,7 @@ namespace GreenLife.Controllers
                     CategoryId=Model.CategoryId,
                     ModelYear=Model.ModelYear,
                     ListPrice=Model.ListPrice,
+                    actual_product_price=Model.actual_product_price,
                     Photo = UniqeFilename,
                 };
                 await _repository.Add (newProduct);
@@ -193,6 +195,7 @@ namespace GreenLife.Controllers
                 //CategoryId = product.CategoryId,
                 ModelYear = product.ModelYear,
                 ListPrice = product.ListPrice,
+                actual_product_price=product.actual_product_price,
                 ExistingPhtopathEdit = product.Photo,
                
                 ExistingID=product.ProductId
@@ -214,6 +217,7 @@ namespace GreenLife.Controllers
                 product.CategoryId = model.CategoryId;
                 product.ModelYear = model.ModelYear;
                 product.ListPrice = model.ListPrice;
+                product.actual_product_price = model.actual_product_price;
                 if (model.Photo != null)
                 {
                     if (model.ExistingPhtopathEdit != null)

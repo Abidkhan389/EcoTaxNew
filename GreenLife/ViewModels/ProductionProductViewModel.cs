@@ -40,6 +40,8 @@ namespace GreenLife.ViewModels
         public short ModelYear { get; set; }
         [Required]
         public decimal ListPrice { get; set; }
+        public decimal actual_product_price { get; set; }
+
         public string Productphoto { get; set; }
         public IFormFile? Photo { get; set; }
        // public IFormFile ExistingPhtopath { get; set; }

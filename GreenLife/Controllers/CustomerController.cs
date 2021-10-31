@@ -7,6 +7,7 @@ using GreenLife.ViewModels.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,17 @@ namespace GreenLife.Controllers
     {
         private readonly EFCoreCustomerRepository _repository;
         private readonly IMailService _mailService;
+        private readonly GreenLifeFinalContext _greenLifeFinalContext;
         private readonly EFCoreCityRepository _eFCoreCityRepository;
 
         private readonly EfCoreProductRepository _efCoreProductRepository;
 
-        public CustomerController(EFCoreCustomerRepository repository, IMailService mailService, EFCoreCityRepository eFCoreCityRepository, EfCoreProductRepository efCoreProductRepository)
+        public CustomerController(EFCoreCustomerRepository repository, IMailService mailService,
+            GreenLifeFinalContext greenLifeFinalContext, EFCoreCityRepository eFCoreCityRepository, EfCoreProductRepository efCoreProductRepository)
         {
             this._repository = repository;
             this._mailService = mailService;
+            this._greenLifeFinalContext = greenLifeFinalContext;
             this._eFCoreCityRepository = eFCoreCityRepository;
             this._efCoreProductRepository = efCoreProductRepository;
         }
@@ -38,7 +42,7 @@ namespace GreenLife.Controllers
             try
             {
                 Random random = new Random();
-                int randomNumber = random.Next(1000, 9999);
+                int randomNumber = random.Next(1000, 999999);
                 MailRequest mailRequest = new MailRequest();
                 mailRequest.ToEmail = email;
                 HttpContext.Session.SetString("verificationCode", randomNumber.ToString());
@@ -57,13 +61,33 @@ namespace GreenLife.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public async Task<JsonResult> VerifyCode(string code)
+        public JsonResult VerifyCode(string code)
         {
             try
             {
                
                 string verifycode=HttpContext.Session.GetString("verificationCode");
                 if (code == verifycode)
+                    return Json(true);
+                else
+                    return Json(false);
+            }
+            catch (Exception ex)
+            {
+
+                return Json(false);
+            }
+
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public JsonResult VerifyTransactionTID(string TransactionId)
+        {
+            try
+            {
+
+                var verifyTransactionId =  _greenLifeFinalContext.SalesCustomers.Where(x => x.TransactionTID == TransactionId).ToListAsync();
+                if (verifyTransactionId != null)
                     return Json(true);
                 else
                     return Json(false);
