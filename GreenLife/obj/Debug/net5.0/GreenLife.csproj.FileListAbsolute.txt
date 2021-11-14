@@ -663,7 +663,6 @@ D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\GreenLife.RazorTargetAssemblyInfo
 D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\GreenLife.dll
 D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\ref\GreenLife.dll
 D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\GreenLife.pdb
-D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\GreenLife.csprojAssemblyReference.cache
 D:\Ecotax\EcoTaxNew\GreenLife\bin\Debug\net5.0\appsettings.Development.json
 D:\Ecotax\EcoTaxNew\GreenLife\bin\Debug\net5.0\appsettings.json
 D:\Ecotax\EcoTaxNew\GreenLife\bin\Debug\net5.0\libman.json
@@ -794,3 +793,4 @@ D:\Ecotax\EcoTaxNew\GreenLife\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\S
 D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\GreenLife.Views.pdb
 D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\GreenLife.csproj.CopyComplete
 D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\GreenLife.genruntimeconfig.cache
+D:\Ecotax\EcoTaxNew\GreenLife\obj\Debug\net5.0\GreenLife.csprojAssemblyReference.cache

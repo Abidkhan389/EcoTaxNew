@@ -49,7 +49,9 @@ namespace GreenLife.Controllers
                 mailRequest.Body = "This is your verification Code:" + randomNumber.ToString();
                 await _mailService.SendEmailAsync(mailRequest);
                 //var verificationCode= HttpContext.Session.GetString("verificationCode");
+                
                 return Json(true);
+
             }
             catch (Exception ex)
             {

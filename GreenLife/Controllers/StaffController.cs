@@ -49,7 +49,7 @@ namespace GreenLife.Controllers
                 staffloop.storesName = storeobj.StoreName;
 
                 //staffloop.StoreId = item.StoreId;
-                staffloop.ManagerId = item.ManagerId;
+                //staffloop.ManagerId = item.ManagerId;
                 staffloop.StaffId = item.StaffId;
                 staffloop.Active = item.Active;
                 staffList.Add(staffloop);
@@ -87,7 +87,7 @@ namespace GreenLife.Controllers
                     Phone = model.Phone,
 
                     StoreId = model.StoreId,
-                    ManagerId = model.ManagerId
+                   // ManagerId = model.ManagerId
                 };
                 if (model.choseactivetype)
                 {
@@ -132,7 +132,7 @@ namespace GreenLife.Controllers
             }
             staff.storelist = storeList;
             //StoreId = editstaff.StoreId,
-            staff.ManagerId = editstaff.ManagerId;
+            //staff.ManagerId = editstaff.ManagerId;
             staff.StaffId = editstaff.StaffId;
 
 
@@ -157,7 +157,7 @@ namespace GreenLife.Controllers
                     updatestaff.Active = 0;
                 }
                 updatestaff.StoreId = model.StoreId;
-                updatestaff.ManagerId = model.ManagerId;
+                //updatestaff.ManagerId = model.ManagerId;
                 updatestaff.StaffId = model.StaffId;
                 await _repository.Update(updatestaff);
                 return RedirectToAction("Index");

@@ -378,7 +378,7 @@ namespace GreenLife.Models
                     .IsUnicode(false)
                     .HasColumnName("last_name");
 
-                entity.Property(e => e.ManagerId).HasColumnName("manager_id");
+                //entity.Property(e => e.ManagerId).HasColumnName("manager_id");
 
                 entity.Property(e => e.Phone)
                     .HasMaxLength(25)
@@ -387,10 +387,10 @@ namespace GreenLife.Models
 
                 entity.Property(e => e.StoreId).HasColumnName("store_id");
 
-                entity.HasOne(d => d.Manager)
-                    .WithMany(p => p.InverseManager)
-                    .HasForeignKey(d => d.ManagerId)
-                    .HasConstraintName("FK__sales_sta__manag__2B3F6F97");
+                //entity.HasOne(d => d.Manager)
+                //    .WithMany(p => p.InverseManager)
+                //    .HasForeignKey(d => d.ManagerId)
+                //    .HasConstraintName("FK__sales_sta__manag__2B3F6F97");
 
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.SalesStaffs)

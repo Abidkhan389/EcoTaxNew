@@ -63,6 +63,8 @@ namespace GreenLife.Controllers
                 var city = await _eFCoreCityRepository.Get(newcustomer.Cityid ?? 0);
                 salesOrder.CustomerId = newcustomer.CustomerId;
                 salesOrder.ShippedDate = shipdate;
+                salesOrder.StaffId = 1;
+                salesOrder.OrderDate = DateTime.Now;
                 if (city.CityName == "Multan" || city.CityName == "Khanewal")
                 {
                     salesOrder.StoreId = (await _eFCoreStoreRepository.Get(city.Id)).StoreId;
