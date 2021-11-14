@@ -70,7 +70,7 @@ namespace GreenLife.Controllers
 
                 productlistloop.ModelYear = item.ModelYear;
                 productlistloop.ListPrice = item.ListPrice;
-                productlistloop.actual_product_price = item.actual_product_price;
+                productlistloop.actual_product_price = item.actual_product_price ?? 0;
                 productlistloop.Productphoto = item.Photo;
 
                 productList.Add(productlistloop);
@@ -195,7 +195,7 @@ namespace GreenLife.Controllers
                 //CategoryId = product.CategoryId,
                 ModelYear = product.ModelYear,
                 ListPrice = product.ListPrice,
-                actual_product_price=product.actual_product_price,
+                actual_product_price=product.actual_product_price ?? 0,
                 ExistingPhtopathEdit = product.Photo,
                
                 ExistingID=product.ProductId

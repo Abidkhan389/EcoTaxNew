@@ -263,8 +263,10 @@
                     url: "/Customer/Send",
                     data: { "email": Email },
                     success: function (response) {
-                        swal("Varification Code!", "Please enter verification code, which we have sent to your email address", "Ok")
-
+                        if (response == true)
+                            swal("Varification Code!", "Please enter verification code, which we have sent to your email address", "Ok")
+                        else
+                            swal("Verification Code!", "Please contact with Admin regarding authentication issue");
                         /*alert("Please enter verification code, which we have sent to your email address");*/
                     },
                     failure: function (response) {

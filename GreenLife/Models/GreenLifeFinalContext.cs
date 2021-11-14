@@ -140,7 +140,7 @@ namespace GreenLife.Models
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("list_price");
                 entity.Property(e => e.actual_product_price)
-                  .HasColumnType("decimal(10, 2)")
+                  .HasColumnType("decimal(10, 2)")                  
                   .HasColumnName("actual_product_price");
 
                 entity.Property(e => e.ModelYear).HasColumnName("model_year");
