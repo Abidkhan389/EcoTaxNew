@@ -31,6 +31,7 @@ namespace GreenLife.Controllers
             //var obj3 = await _context.ProductionProducts.OrderByDescending(x => x.ProductId).ToListAsync();
             var obj3 = (await _efCoreProductRepository.GetAll()).OrderByDescending(x=>x.ProductId).ToList();
            var obj = await _efCoreProductRepository.GetAll();
+            
             foreach (var item in obj3)
             {
                 ProductionProductViewModel productlistloop = new ProductionProductViewModel();

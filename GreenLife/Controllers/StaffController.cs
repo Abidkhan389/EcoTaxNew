@@ -165,11 +165,12 @@ namespace GreenLife.Controllers
             return View();
         }
         [HttpPost]
+        
         public async Task<IActionResult> Delete(int id)
         {
             if (ModelState.IsValid)
             {
-                SalesStaff deletestaff = await _repository.Delete(id);
+                SalesStaff deletestaff = await _repository.Get(id);
                 if (deletestaff != null)
                 {
                     await _repository.Delete(id);

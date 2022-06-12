@@ -1,4 +1,5 @@
-﻿using GreenLife.Data.EFCore;
+﻿using AutoMapper;
+using GreenLife.Data.EFCore;
 using GreenLife.Models;
 using GreenLife.ViewModels.City;
 using Microsoft.AspNetCore.Authorization;
@@ -14,10 +15,12 @@ namespace GreenLife.Controllers
     public class CityController : Controller
     {
         private readonly EFCoreCityRepository _repository;
+        private readonly IMapper mapper; // this is the object of automapperprofile class to mapping automatically
 
-        public CityController(EFCoreCityRepository repository)
+        public CityController(EFCoreCityRepository repository, IMapper mapper)
         {
             this._repository = repository;
+            this.mapper = mapper;
         }
         public async Task<IActionResult> Index()
         {
@@ -35,6 +38,8 @@ namespace GreenLife.Controllers
         {
             if (ModelState.IsValid)
             {
+                //City newCity = mapper.Map<City>(model);// mapp viewmodel object with the help of mapper class wiht automapperProfile mapper 
+                //await _repository.Add(newCity);// aftrer mapping object, we call the generic method for add city in city tble in database
                 City newcity = new()
                 {
                     CityName = model.cityname

@@ -49,7 +49,9 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"57c3396c46c1dcf6658ee8b3659bad1c6db73997", @"/Views/Shared/_MainMenu.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d2f19ce9c43747c90e84abdae5bb5e58cbd50bf3", @"/Views/_ViewImports.cshtml")]
+    #nullable restore
     public class Views_Shared__MainMenu : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
+    #nullable disable
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Category", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -93,7 +95,7 @@ using Microsoft.AspNetCore.Identity;
         {
             WriteLiteral("<ul class=\"sidebar-menu\" data-widget=\"tree\">\n    <li class=\"header\">HEADER</li>\n    <!-- Optionally, you can add icons to the links -->\n");
             WriteLiteral("    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db739978605", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db739978651", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>Category</span>");
             }
             );
@@ -111,7 +113,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399710021", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399710067", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>Store</span>");
             }
             );
@@ -129,7 +131,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399711435", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399711481", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>City</span>");
             }
             );
@@ -147,7 +149,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399712848", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399712894", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>Product</span>");
             }
             );
@@ -165,7 +167,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399714264", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399714310", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>Brand</span>");
             }
             );
@@ -183,7 +185,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399715678", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399715724", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>Staff</span>");
             }
             );
@@ -201,7 +203,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399717092", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399717138", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>Orders</span>");
             }
             );
@@ -219,7 +221,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399718507", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399718553", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>Orders_items</span>");
             }
             );
@@ -237,7 +239,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399719928", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399719974", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>Customer</span>");
             }
             );
@@ -264,7 +266,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399721615", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399721661", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>RegisterUser</span>");
             }
             );
@@ -282,7 +284,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399723048", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399723094", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>ListRoles</span>");
             }
             );
@@ -300,7 +302,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\n            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399724478", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57c3396c46c1dcf6658ee8b3659bad1c6db7399724524", async() => {
                 WriteLiteral("<i class=\"fa fa-link\"></i> <span>ListUSers</span>");
             }
             );
@@ -340,18 +342,30 @@ using Microsoft.AspNetCore.Identity;
 </ul>");
         }
         #pragma warning restore 1998
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public SignInManager<ApplicationUser> signInManager { get; private set; }
+        public SignInManager<ApplicationUser> signInManager { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<dynamic> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<dynamic> Html { get; private set; } = default!;
+        #nullable disable
     }
 }
 #pragma warning restore 1591

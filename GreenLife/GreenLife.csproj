@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="jQuery.UI.Combined" Version="1.12.1" />
     <PackageReference Include="MailKit" Version="2.15.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.11" />

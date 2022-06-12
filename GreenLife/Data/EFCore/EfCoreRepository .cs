@@ -30,11 +30,13 @@ namespace GreenLife.Data.EFCore
             {
                 return entity;
             }
+            else
+            {
+                context.Set<TEntity>().Remove(entity);
+                await context.SaveChangesAsync();
 
-            context.Set<TEntity>().Remove(entity);
-            await context.SaveChangesAsync();
-
-            return entity;
+                return entity;
+            }
         }
 
         public async Task<TEntity> Get(int id)

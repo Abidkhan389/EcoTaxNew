@@ -61,71 +61,74 @@
                 @if (item.ProductId == 2012)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
-                    <div class="col-4">
-                        
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
+            <div class="col-4">
 
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+                <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+                <h4>@item.ProductName</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>RS:@item.ListPrice</p>
+            </div>
                 }
                 @if (item.ProductId == 2008)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index" ><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                 }
                 @if (item.ProductId == 2014)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
 
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index" ><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                 }
                 @if (item.ProductId == 2015)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
 
-                    <div class="col-4">
-                       
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                  }
              }
         </div>
@@ -136,67 +139,71 @@
                 @if (item.ProductId == 2015)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+            <div class="col-4">
+                <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+                <h4>@item.ProductName</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>RS:@item.ListPrice</p>
+            </div>
                 }
                 @if (item.ProductId == 2014)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                 }
                 @if (item.ProductId == 2013)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                 }
                 @if (item.ProductId == 2012)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
 
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                 }
             }
         </div>
@@ -206,67 +213,71 @@
                 @if (item.ProductId == 2011)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+            <div class="col-4">
+                <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+                <h4>@item.ProductName</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>RS:@item.ListPrice</p>
+            </div>
                 }
                 @if (item.ProductId == 2010)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                 }
                 @if (item.ProductId == 2009)
                 {
                     var photopath = "~/Images/Product/" + (item.Productphoto ?? "Mind.jpg");
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                 }
                 @if (item.ProductId == 2008)
                 {
                     var photopath = "/images/Product/" + (item.Productphoto ?? "Mind.jpg");
 
-                    <div class="col-4">
-                        <a asp-controller="Product" asp-action="Index"><img src="@photopath" asp-append-version="true"></a>
-                        <h4>@item.ProductName</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <p>RS:@item.ListPrice</p>
-                    </div>
+        <div class="col-4">
+            <a asp-controller="Details2" asp-action="Index" asp-route-id="@item.ProductId"><img src="@photopath" asp-append-version="true"></a>
+
+            <h4>@item.ProductName</h4>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <p>RS:@item.ListPrice</p>
+        </div>
                 }
             }
             

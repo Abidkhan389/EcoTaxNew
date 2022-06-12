@@ -9,7 +9,7 @@ namespace GreenLife.ViewModels.City
     public class CityCreateViewModel
     {
         public int cityid { get; set; }
-        [Required]
+        [Required ]
         public string cityname { get; set; }
 
     }

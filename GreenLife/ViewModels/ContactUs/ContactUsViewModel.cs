@@ -10,6 +10,7 @@ namespace GreenLife.ViewModels.ContactUs
     {
         public int ID { get; set; }
         //[Required]
+        //[Required(ErrorMessage ="Please enter your first Name")]
         public string firstname { get; set; }
         public string lastname { get; set; }
         [Required]

@@ -1,3 +1,4 @@
+using GreenLife.AutoRapper;
 using GreenLife.Data.EFCore;
 using GreenLife.Models;
 using GreenLife.Utilities.services;
@@ -68,6 +69,7 @@ namespace GreenLife
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(60);
             });
+            services.AddAutoMapper(typeof(AutoMapperProfile).Assembly); // add services automapperprofile for auto object biding
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
